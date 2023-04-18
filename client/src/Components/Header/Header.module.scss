@@ -1,0 +1,53 @@
+@import "../../Utils/UI.module.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+  height: 70px;
+
+  margin: 0 auto;
+
+  padding-top: 10px;
+}
+
+.logotype,
+.authButtons,
+.navBar {
+  display: flex;
+  align-items: center;
+}
+
+.navBar {
+  justify-content: space-between;
+  font-weight: 500;
+  width: clamp(300px, 35%, 600px);
+}
+
+.authButtons {
+  justify-content: space-between;
+  font-weight: 500;
+  width: clamp(10px, 25%, 170px);
+}
+
+img {
+  width: 150px;
+}
+
+.btnSignIn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btnSignUp {
+  background-color: $main-color;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 5px 20px 5px 20px;
+  color: white;
+}

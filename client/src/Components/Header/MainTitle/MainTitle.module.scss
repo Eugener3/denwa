@@ -1,0 +1,35 @@
+@import '../../../Utils/UI.module.scss';
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    height: 500px;
+}
+
+.mainTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    h1, h3 {
+        width: clamp(500px, 30%, 600px);
+        text-align: center;
+
+        margin: 0 auto;
+    }
+
+    .btnsWrapp {
+        display: flex;
+        justify-content: space-between;
+        width: 31%;
+
+        button {
+            width: 240px;
+        }
+    }
+}
