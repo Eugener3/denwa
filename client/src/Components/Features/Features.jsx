@@ -1,11 +1,30 @@
 import React from "react"
 import styles from "./Features.module.scss"
+import { useQuery } from "react-query"
+import { getLimitedCategories } from "../../Utils/api/api"
 
 import image from "../../Assets/Images/Apple.svg"
 import { AiFillStar } from "react-icons/ai"
 import { BsCircleFill } from "react-icons/bs"
 
 const Features = () => {
+  const {
+    data: categories,
+    isLoading,
+    isError,
+  } = useQuery("limitedCategories", () => getLimitedCategories(5))
+
+  if (isLoading) {
+    return console.log("loading...")
+  }
+  if (isError) {
+    return console.log("error.")
+  }
+  if (!categories) {
+    return console.log("no data")
+  }
+  
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -32,9 +51,15 @@ const Features = () => {
           <div className={styles.skills}>
             <h4>Skills & Expertise</h4>
             <div className={styles.skillsWrapper}>
-              <p className={styles.categoryText}>User Interface</p>
-              <p className={styles.categoryText}>User Interface</p>
-              <p className={styles.categoryText}>User Interface</p>
+
+            {/* {items.map(item => (
+            <p key={item} className={styles.item}>
+              {item}
+            </p>
+          ))} */}
+              {categories.map((category) => (
+                <p className={styles.categoryText}>{category.nameCategory}</p>
+              ))}
             </div>
           </div>
         </div>
