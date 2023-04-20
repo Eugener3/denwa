@@ -1,0 +1,116 @@
+@import "../../Utils/UI.module.scss";
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+}
+
+.leftContent {
+  width: 35%;
+  height: 400px;
+}
+
+.workerCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 210px;
+  margin-top: 15px;
+}
+
+.workerImageWrapper {
+  background-color: $main-bg-color-op20;
+  border-radius: $main-border-radius;
+  width: 50px;
+  height: 50px;
+}
+
+.workerImage {
+  width: 50px;
+  height: 50px;
+}
+
+.workerName {
+  font-weight: 600;
+}
+
+.category {
+  color: $main-bg-color-op60;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.dash {
+  margin: 0px 8px;
+  font-weight: 600;
+}
+
+.skills {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.skillsWrapper {
+  width: 47%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  flex-wrap: wrap;
+  margin-left: 40px;
+  margin-top: 10px;
+}
+
+.categoryText {
+  background-color: $main-bg-color-op20;
+  opacity: 0.8;
+  color: $main-bg-color-op60;
+  border-radius: $main-border-radius;
+  padding: 5px 10px 5px 10px;
+  text-align: center;
+  font-weight: 700;
+  width: 140px;
+  margin-top: 5px;
+}
+
+.rightWrapper {
+  width: 25%;
+  height: 400px;
+}
+
+.rightContent {
+  h2 {
+    width: 320px;
+  }
+  p {
+    width: 300px;
+    color: $main-bg-color-op60;
+    margin-top: 20px;
+  }
+}
+
+.features {
+  margin-top: 15px;
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  p {
+    margin-left: 8px;
+    margin-top: 0;
+    font-weight: 500;
+  }
+}

@@ -1,0 +1,18 @@
+@import "../../Utils/UI.module.scss";
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  opacity: 0.2;
+}
+
+
+
