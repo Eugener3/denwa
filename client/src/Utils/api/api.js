@@ -21,4 +21,9 @@ export const getByIdCategories = async (id) => {
     return response.data;
 };
 
+// export const registration = async (id) => {
+//     const response = await api.get(`/category/${id}`);
+//     return response.data;
+// };
+
 export default api;

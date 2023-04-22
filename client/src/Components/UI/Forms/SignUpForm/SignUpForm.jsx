@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 const SignUpForm = () => {
   const {
     register,
-    formState: { errors, isValid},
+    formState: { errors, isValid },
     handleSubmit,
   } = useForm({ mode: "all" })
 
@@ -13,15 +13,15 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={handleSubmit()}>
-      <h2>Sign Up</h2>
-      <h3>Title for description</h3>
+      <h2>Регистрация</h2>
+      <h3>Присоединяйтесь к нашей команде!</h3>
       <p>E-mail:</p>
       <input
         type='text'
-        placeholder='Email'
+        placeholder='Эл-почта'
         {...register("email", {
-          required: "Поле обязательно для заполнения",
-          pattern: { value: regexEmail, message: "Некорректный e-mail адрес" },
+          required: "Поле обязательно к заполнению",
+          pattern: { value: regexEmail, message: "Некорректный адрес Эл-почты" },
         })}
       />
       <error>{errors.email && errors.email.message}</error>
@@ -30,7 +30,7 @@ const SignUpForm = () => {
         type='text'
         placeholder='Password'
         {...register("password", {
-          required: "Поле обязательно для заполнения",
+          required: "Поле обязательно к заполнению",
           minLength: { value: 6, message: "Минимум 6 символов" },
           maxLength: { value: 24, message: "Максимум 24 символа" },
         })}

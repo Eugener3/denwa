@@ -73,6 +73,9 @@
 }
 
 .categoryText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $main-bg-color-op20;
   opacity: 0.8;
   color: $main-bg-color-op60;

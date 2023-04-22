@@ -12,7 +12,7 @@ const Features = () => {
     data: categories,
     isLoading,
     isError,
-  } = useQuery("limitedCategories", () => getLimitedCategories(5))
+  } = useQuery("limitedCategories", () => getLimitedCategories(4))
 
   if (isLoading) {
     return console.log("loading...")
@@ -23,8 +23,8 @@ const Features = () => {
   if (!categories) {
     return console.log("no data")
   }
-  
 
+  console.log(categories)
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>
@@ -51,13 +51,12 @@ const Features = () => {
           <div className={styles.skills}>
             <h4>Skills & Expertise</h4>
             <div className={styles.skillsWrapper}>
-
-            {/* {items.map(item => (
+              {/* {items.map(item => (
             <p key={item} className={styles.item}>
               {item}
             </p>
           ))} */}
-              {categories.map((category) => (
+              {categories.map(category => (
                 <p className={styles.categoryText}>{category.nameCategory}</p>
               ))}
             </div>

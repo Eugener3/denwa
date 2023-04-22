@@ -14,22 +14,22 @@ const SignInForm = () => {
 
   return (
     <form onSubmit={handleSubmit()}>
-      <h2>Sign in</h2>
-      <h3>Title for description</h3>
-      <p>Логин:</p>
+      <h2>Авторизация</h2>
+      <h3>Получите доступ к своему профилю</h3>
+      <p>Эл-почта:</p>
       <input
         type='text'
-        placeholder='Email'
+        placeholder='Эл-почта'
         {...register("email", { required: true })}
       />
-      <error>{errors.email && "Поле email обязательно к заполнению"}</error>
+      <error>{errors.email && "Поле обязательно к заполнению"}</error>
       <p>Пароль:</p>
       <input
         type='text'
-        placeholder='Password'
+        placeholder='Пароль'
         {...register("password", { required: true, min: 6, max: 24 })}
       />
-      <error>{errors.password && "Поле пароля обязательно к заполнению"}</error>
+      <error>{errors.password && "Поле обязательно к заполнению"}</error>
       <button type='submit'  disabled={!isValid}>Sign In</button>
     </form>
   )

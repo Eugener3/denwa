@@ -1,10 +1,12 @@
 import { React, useState } from "react"
-import SignUpForm from "../UI/Forms/SignInForm/SignInForm"
+
 import styles from "./Header.module.scss"
 import Logotype from "../UI/Logotype/Logotype"
 
 import Modal from "../UI/Modal/Modal"
+
 import SignInForm from "../UI/Forms/SignInForm/SignInForm"
+import SignUpForm from "../UI/Forms/SignUpForm/SignUpForm"
 
 const Header = () => {
   const items = ["Home", "About", "Feature", "Resource"]
@@ -13,12 +15,14 @@ const Header = () => {
   const [modalContent, setModalContent] = useState(null)
 
   const handleSignInClick = () => {
-    setModalContent(<SignInForm/>)
+    setModalContent(<SignInForm />)
+
     setModalActive(true)
   }
 
   const handleSignUpClick = () => {
     setModalContent(<SignUpForm />)
+
     setModalActive(true)
   }
 
@@ -29,7 +33,7 @@ const Header = () => {
       </Modal>
       <div className={styles.wrapper}>
         <div className={styles.logotype}>
-          <Logotype/>
+          <Logotype />
         </div>
         <div className={styles.navBar}>
           {items.map(item => (
