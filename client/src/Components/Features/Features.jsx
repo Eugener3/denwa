@@ -24,7 +24,6 @@ const Features = () => {
     return console.log("no data")
   }
 
-  console.log(categories)
   return (
     <div className={styles.wrapper}>
       <div className={styles.content}>

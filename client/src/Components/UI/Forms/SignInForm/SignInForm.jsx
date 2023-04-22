@@ -6,11 +6,7 @@ const SignInForm = () => {
     register,
     formState: { errors, isValid },
     handleSubmit,
-  } = useForm({mode: "all"})
-
-
-  
-
+  } = useForm({ mode: "all" })
 
   return (
     <form onSubmit={handleSubmit()}>
@@ -30,7 +26,9 @@ const SignInForm = () => {
         {...register("password", { required: true, min: 6, max: 24 })}
       />
       <error>{errors.password && "Поле обязательно к заполнению"}</error>
-      <button type='submit'  disabled={!isValid}>Sign In</button>
+      <button type='submit' disabled={!isValid}>
+        Sign In
+      </button>
     </form>
   )
 }

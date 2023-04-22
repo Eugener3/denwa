@@ -21,9 +21,11 @@ export const getByIdCategories = async (id) => {
     return response.data;
 };
 
-// export const registration = async (id) => {
-//     const response = await api.get(`/category/${id}`);
-//     return response.data;
-// };
+
+// auth api
+export const registration = async (data) => {
+    const response = await api.post(`/user/register`, data);
+    return response.data;
+};
 
 export default api;
