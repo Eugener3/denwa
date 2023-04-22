@@ -1,5 +1,7 @@
 const User = require('../Models/User')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
+const SECRET_KEY = process.env.SECRET_KEY
 
 module.exports = {
     getAll: async (req, res) => {
@@ -60,7 +62,26 @@ module.exports = {
             })
         }
     },
+    // Не доделан
     login: async (req, res) => {
-        const candidate = await User.findOne({email})
+        const candidate = await User.findOne({email: req.body.email})
+        if (candidate) {
+            if (await bcrypt.compare(req.body.password,  candidate.password)) {
+                const payload = {
+                    email: req.body.email
+                }
+                // Сделать refresh token
+                const token = jwt.sign(payload, SECRET_KEY, {expiresIn: '7d'})
+                res.status(200).json(`Bearer ${token}`)
+            } else {
+                res.status(409).json({
+                    message: "Пароль введён неверно"
+                })
+            }
+        } else {
+            res.status(404).json({
+                message: "Пользователь с такой почтой не найден"
+            })
+        }
     }
 }
