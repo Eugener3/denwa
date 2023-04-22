@@ -15,7 +15,7 @@ const SignUpForm = () => {
     <form onSubmit={handleSubmit()}>
       <h2>Регистрация</h2>
       <h3>Присоединяйтесь к нашей команде!</h3>
-      <p>E-mail:</p>
+      <p>Эл-почта:</p>
       <input
         type='text'
         placeholder='Эл-почта'
