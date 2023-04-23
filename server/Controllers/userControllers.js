@@ -1,4 +1,5 @@
 const User = require('../Models/User')
+const userService = require('../Services/userService')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const SECRET_KEY = process.env.SECRET_KEY
@@ -32,29 +33,11 @@ module.exports = {
     },
     register: async (req, res) => {
         try {
-            const candidate = await User.findOne({email: req.body.email})
-            if (candidate) {
-                res.status(409).json({
-                    message: "Пользователь с такой почтой уже существует"
-                })
-            } else {
-                if (req.body.password) {
-                    const salt = await bcrypt.genSalt(10)
-                    const hashPassword = await bcrypt.hash(req.body.password, salt)
-                    const user = new User({
-                        email: req.body.email,
-                        password: hashPassword
-                    })
-                    await user.save()
-                    res.status(200).json({
-                        message: "Регистрация прошла успешно"
-                    })
-                } else {
-                    res.status(409).json({
-                        message: "Заполните пароль"
-                    })
-                }
-            }
+            const {password, email} = req.body
+            const userData = await userService.registration(email, password, res)
+
+            res.cookie('refreshToken', userData.refreshToken, {maxAge: 30 * 24 * 60 * 60 * 1000, httpOnly: true})
+            res.status(200).json(userData)
         } catch (error) {
             console.log(error)
             res.status(400).json({
@@ -83,5 +66,24 @@ module.exports = {
                 message: "Пользователь с такой почтой не найден"
             })
         }
+    },
+    logout: async (req, res, next) => {
+
+    },
+    activate: async (req, res, next) => {
+        try {
+            const activationLink = req.params.link
+            await userService.activate(activationLink, res)
+            res.redirect(process.env.CLIENT_URL)
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: "Ошибка при активации аккаунта"
+            })
+        }
+
+    },
+    refresh: async (req, res, next) => {
+        
     }
 }
